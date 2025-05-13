@@ -1,0 +1,73 @@
+<div class="auth-container">
+  <h2 *ngIf="!isLoggedIn">{{ isForgotPassword ? 'Reset Password' : isLogin ? 'Login' : 'Sign Up' }}</h2>
+  <h2 *ngIf="isLoggedIn">Welcome, {{ loggedInUser }}</h2>
+
+  <!-- LOGIN / SIGNUP FORM -->
+  <form (submit)="onSubmit()" *ngIf="!isLoggedIn && !isForgotPassword">
+    <div class="form-group" *ngIf="!isLogin">
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <div class="form-group" *ngIf="!isLogin">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+    </div>
+
+    <button type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</button>
+
+    <!-- 🔹 Forgot Password Button -->
+    <button type="button" *ngIf="isLogin" (click)="toggleForgotPassword()">Forgot Password?</button>
+  </form>
+
+  <!-- RESET PASSWORD FORM -->
+  <form *ngIf="isForgotPassword" (submit)="resetPassword()">
+    <h3>Reset Password</h3>
+    <div class="form-group">
+      <label for="resetEmail">Enter Your Email</label>
+      <input type="email" id="resetEmail" [(ngModel)]="resetEmail" name="resetEmail" required />
+    </div>
+    <button type="submit">Reset Password</button>
+    <button type="button" (click)="toggleForgotPassword()">Back to Login</button>
+  </form>
+
+  <!-- 🔹 UPDATE USER DETAILS SECTION -->
+  <div *ngIf="isLoggedIn">
+    <h3>Update Profile</h3>
+
+    <div class="form-group">
+      <label for="updateEmail">Update Email</label>
+      <input type="email" id="updateEmail" [(ngModel)]="updateEmail" />
+    </div>
+
+    <div class="form-group">
+      <label for="newUsername">New Username</label>
+      <input type="text" id="newUsername" [(ngModel)]="newUsername" />
+    </div>
+
+    <div class="form-group">
+      <label for="newPassword">New Password</label>
+      <input type="password" id="newPassword" [(ngModel)]="newPassword" />
+    </div>
+
+    <!-- 🔹 Single Update Button for All -->
+    <button (click)="updateUserDetails()">Update</button>
+
+    <button (click)="deleteAccount()">Delete Account</button>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <p *ngIf="!isLoggedIn">
+    <a href="#" (click)="toggleForm()">{{ isLogin ? 'Create an account' : 'Already have an account? Login' }}</a>
+  </p>
+</div>

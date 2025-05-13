@@ -1,0 +1,95 @@
+/* Modern Authentication Form */
+.auth-container {
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 2rem;
+    background: rgba(78, 2, 242, 0.663);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}  
+/* Heading */
+.auth-container h2 {
+    font-size: 1.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-weight: 600;
+    color:orangered;
+    margin-bottom: 1rem;
+}  
+/* Form Styling */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+/* Input Fields */
+input {
+    width: 90%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}  
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.4);
+}  
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}  
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #0086cc);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}  
+/* Profile Picture */
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    object-fit: cover;
+    margin: 10px auto;
+    display: block;
+}  
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}  
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+  
+/* Responsive */
+@media (max-width: 500px) {
+    .auth-container {
+      width: 90%;
+      padding: 1.5rem;
+    }
+}
+  
